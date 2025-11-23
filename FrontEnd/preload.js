@@ -1,6 +1,5 @@
 ﻿const { contextBridge, ipcRenderer } = require('electron');
 
-// Expose protected methods to renderer process
 contextBridge.exposeInMainWorld('electronAPI', {
   // Generate slideshow
   generateSlideshow: (options) => 
@@ -40,4 +39,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   // Check setup
   checkPythonSetup: () => 
     ipcRenderer.invoke('check-python-setup'),
+  
+  // Select folder
+  selectFolder: () => 
+    ipcRenderer.invoke('select-folder'),
+  
+  // Generate from local folder
+  generateSlideshowLocal: (options) => 
+    ipcRenderer.invoke('generate-slideshow-local', options),
 });

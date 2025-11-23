@@ -2,12 +2,12 @@
   "name": "pinterest-slideshow",
   "version": "1.0.0",
   "main": "electron.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "electron": "electron .",
-    "start": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\""
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "electron": "cross-env NODE_ENV=development electron .",
+  "start": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development node_modules\\.bin\\electron.cmd .\""
+},
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "@vitejs/plugin-react": "^4.2.1",
